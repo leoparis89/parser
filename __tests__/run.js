@@ -1,6 +1,8 @@
 const { Parser } = require("../src/Parser");
 const parser = new Parser();
-const program = `// comment
+const program = `/*
+   hello
+*/
 
 32
 `;
