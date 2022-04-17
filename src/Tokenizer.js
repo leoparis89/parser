@@ -1,8 +1,8 @@
 const Specs = [
   [/^\s+/, null],
   [/^\d+/, "NUMBER"],
-  [/"[^"]*"/, "STRING"],
-  [/'[^']*'/, "STRING"],
+  [/^"[^"]*"/, "STRING"],
+  [/^'[^']*'/, "STRING"],
 ];
 
 class Tokenizer {
