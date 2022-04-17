@@ -1,6 +1,7 @@
 const Specs = [
   [/^\s+/, null],
   [/^\/\/.*/, null],
+  [/^\/\*[\s\S]*?\*\//, null],
   [/^\d+/, "NUMBER"],
   [/^"[^"]*"/, "STRING"],
   [/^'[^']*'/, "STRING"],
