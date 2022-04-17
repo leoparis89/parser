@@ -1,4 +1,5 @@
 const Specs = [
+  [/^\s+/, null],
   [/^\d+/, "NUMBER"],
   [/"[^"]*"/, "STRING"],
   [/'[^']*'/, "STRING"],
@@ -30,6 +31,10 @@ class Tokenizer {
 
       if (tokenValue == null) {
         continue;
+      }
+
+      if (tokenType == null) {
+        return this.getNextToken();
       }
 
       return {
