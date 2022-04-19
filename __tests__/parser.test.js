@@ -58,4 +58,21 @@ describe("parser", () => {
       type: "Program",
     });
   });
+
+  test("numbers", () => {
+    const parser = new Parser();
+    const program = `42;`;
+
+    const ast = parser.parse(program);
+
+    expect(ast).toEqual({
+      body: [
+        {
+          expression: { type: "NumericLiteral", value: 42 },
+          type: "ExpressionStatement",
+        },
+      ],
+      type: "Program",
+    });
+  });
 });
