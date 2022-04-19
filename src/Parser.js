@@ -54,7 +54,7 @@ class Parser {
     }
 
     if (token.type != tokenType) {
-      throw new SyntaxError(`Unexpected tokenr, expected ${tokenType}`);
+      throw new SyntaxError(`Unexpected token, expected ${tokenType}`);
     }
 
     this._lookahead = this._tokenizer.getNextToken();
