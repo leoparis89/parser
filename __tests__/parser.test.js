@@ -1,38 +1,60 @@
 const { Parser } = require("../src/Parser");
 
 describe("parser", () => {
-  test("numbers", () => {
+  test("number and string", () => {
     const parser = new Parser();
-    const program = `32`;
+    const program = `32;"hello";`;
 
     const ast = parser.parse(program);
 
     expect(ast).toEqual({
-      body: { type: "NumericLiteral", value: 32 },
+      body: [
+        {
+          expression: { type: "NumericLiteral", value: 32 },
+          type: "ExpressionStatement",
+        },
+        {
+          expression: {
+            type: "StringLiteral",
+            value: "hello",
+          },
+          type: "ExpressionStatement",
+        },
+      ],
       type: "Program",
     });
   });
 
   test("strings double quote", () => {
     const parser = new Parser();
-    const program = `"hello"`;
+    const program = `"hello";`;
 
     const ast = parser.parse(program);
 
     expect(ast).toEqual({
-      body: { type: "StringLiteral", value: "hello" },
+      body: [
+        {
+          expression: { type: "StringLiteral", value: "hello" },
+          type: "ExpressionStatement",
+        },
+      ],
       type: "Program",
     });
   });
 
   test("strings single quote", () => {
     const parser = new Parser();
-    const program = `'hello'`;
+    const program = `'hello';`;
 
     const ast = parser.parse(program);
 
     expect(ast).toEqual({
-      body: { type: "StringLiteral", value: "hello" },
+      body: [
+        {
+          expression: { type: "StringLiteral", value: "hello" },
+          type: "ExpressionStatement",
+        },
+      ],
       type: "Program",
     });
   });
